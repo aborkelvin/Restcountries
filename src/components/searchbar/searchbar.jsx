@@ -23,7 +23,7 @@ function Searchbar(props){
 
         
         dispatch(addcurrentdisplay(searchedcountries))
-        console.log(countriesdata)
+        //console.log(countriesdata)
     }
 
     return(

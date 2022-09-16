@@ -13,19 +13,19 @@ function Homepage(){
     const currentdisplay = useSelector(state => state.currentdisplay)
     const dispatch = useDispatch();    
 
-    useEffect(()=>{
-        async function getdata(){
-            const fetchresult = await fetch('https://restcountries.com/v2/all?fields=name,capital,currencies,nativeName,topLevelDomain,population,languages,region,subrges,region,subregion,population,alpha3Code,borders,flags')
-            data = await fetchresult.json();
-            //console.log(data)
-            dispatch(addcountriesdata(data))
-            dispatch(addcurrentdisplay(data))
-
-        }
-
-        getdata()
+/*     useEffect(()=>{
+      async function getdata(){
+          const fetchresult = await fetch('https://restcountries.com/v2/all?fields=name,capital,currencies,nativeName,topLevelDomain,population,languages,region,subrges,region,subregion,population,alpha3Code,borders,flags')
+          data = await fetchresult.json();
+          
+          dispatch(addcountriesdata(data))
+          dispatch(addcurrentdisplay(data))
+          console.log('got data again')
+      }
+  
+      getdata()
     },[])
-
+ */
     return(
         <div className = "bg-[#202C37] w-full min-h-screen">
             <Header/>            
@@ -40,7 +40,7 @@ function Homepage(){
                         currentdisplay.map((item,i)=>{
                             return(
                                 <Country key={i} name = {item.name} population = {item.population} region = {item.region}
-                                capital = {item.capital} flag = {item.flags.png} />
+                                capital = {item.capital} flag = {item.flags.png} id = {i} />
                             )
                     
                         })
@@ -141,4 +141,4 @@ let data2 = [
 ]
 
 export default Homepage;
-export {data}
+export {data2}
