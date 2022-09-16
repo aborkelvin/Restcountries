@@ -18,18 +18,15 @@ function Countrydisplay(props){
     let population = currentcountry.population.toLocaleString();
     
     let borderingcountriescode = currentcountry.borders
+    if(borderingcountriescode){
+        var borderingcountries = countriesdata.filter((item,i) =>{        
+            return(
+                borderingcountriescode.includes(item.alpha3Code)
+            )
+        })
+        console.log(borderingcountries)
+    }
     
-    let borderingcountries = countriesdata.filter((item,i) =>{        
-        return(
-            borderingcountriescode.includes(item.alpha3Code)
-        )
-    })
-    console.log(borderingcountries)
-
-    useEffect(() =>{
-
-    },[])
-
     return (
         <div className = "bg-[#202C37] w-full min-h-screen"  >
             <Header />
@@ -50,7 +47,7 @@ function Countrydisplay(props){
                             <h2 className = "font-bold text-[18px]">Capital: <span className="font-normal">{currentcountry.capital}</span></h2>                            
                         </div>
                         <h2 className = "col-start-1 col-end-4 font-bold">Border Countries: {
-                            borderingcountries.map(item => <Bordercountry name = {item.name} />)
+                           borderingcountries ? borderingcountries.map((item,i) => <Bordercountry key = {i} name = {item.name} />): <Bordercountry name = "No bordering countries"/>
                         } </h2>
                         <div className="col-start-2 row-start-2 flex flex-col gap-2">
                             <h2 className = "font-bold text-[18px]">Top Level Domain : <span className="font-normal"> { currentcountry.topLevelDomain}</span></h2>
@@ -83,7 +80,7 @@ function Countrydisplay(props){
 function Bordercountry(props){
 
     return(
-        <button className = "bg-[#2B3945] rounded-sm shadow-sm shadow-[#0c1318] mx-3 my-1 min-h-[35px] text-white w-[120px] font-normal" >            
+        <button className = "bg-[#2B3945] rounded-sm shadow-sm shadow-[#0c1318] mx-3 my-1 min-h-[35px] text-white w-[130px] font-normal" >            
             {props.name}
         </button>
     )
