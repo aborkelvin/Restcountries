@@ -15,6 +15,9 @@ function App() {
         const fetchresult = await fetch('https://restcountries.com/v2/all?fields=name,capital,currencies,nativeName,topLevelDomain,population,languages,region,subrges,region,subregion,population,alpha3Code,borders,flags')
         let data = await fetchresult.json();
         
+        data.forEach((item,i) => {
+          item.id = i + 1;
+        });
         dispatch(addcountriesdata(data))
         dispatch(addcurrentdisplay(data))
         console.log('got data again')

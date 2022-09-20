@@ -5,6 +5,7 @@ import { addcountriesdata, addcurrentdisplay } from "../../actions/actions"
 function Filter(){
     const currentdisplay = useSelector(state => state.currentdisplay)
     const countriesdata = useSelector(state => state.countriesdata)
+    const displaymode = useSelector(state => state.displaymode)
     const dispatch = useDispatch()
 
     const handlefilter = (e) =>{
@@ -30,8 +31,9 @@ function Filter(){
     }
     
     return(        
-            <select name="filter" defaultValue = {'DEFAULT'} className="outline-0 h-[50px] w-[250px] xl:w-[300px] bg-[#2B3945]
-            text-white p-2 rounded cursor-pointer" onClick={handlefilter} >
+            <select name="filter" defaultValue = {'DEFAULT'} className= {`outline-0 h-[50px] w-[250px] xl:w-[300px] p-2 rounded
+             cursor-pointer shadow-lg ${displaymode === "dark"? "bg-[#2B3945] text-white" : 'bg-white text-[#111517]'} `} 
+            onClick={handlefilter} >
                 <option value = "DEFAULT" disabled hidden className="cursor-pointer">Filter by Region</option>
                 <option value="Africa" className ="mt-2">Africa</option>
                 <option value = "Americas" className="cursor-pointer">America</option>

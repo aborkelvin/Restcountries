@@ -18,8 +18,20 @@ const currentdisplay = (state = [] ,action) => {
     }
 } 
 
+const displaymode = (state = 'dark', action) =>{
+    switch(action.type){
+        case 'change to light mode':
+            return 'light'
+        case 'change to dark mode':
+            return 'dark'
+        default:
+            return state
+    }
+}
+
 const allreducers = combineReducers({
     countriesdata:countriesdata,
-    currentdisplay:currentdisplay
+    currentdisplay:currentdisplay,
+    displaymode:displaymode
 })
 export default allreducers

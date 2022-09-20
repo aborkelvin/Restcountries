@@ -13,3 +13,15 @@ export const addcurrentdisplay = (data) => {
         payload:data
     }
 }
+
+export const changetodarkmode = () => {
+    return {
+        type: 'change to dark mode'
+    }
+}
+
+export const changetolightmode = () => {
+    return {
+        type: 'change to light mode'
+    }
+}

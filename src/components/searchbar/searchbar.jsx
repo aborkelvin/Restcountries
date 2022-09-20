@@ -7,6 +7,7 @@ import { addcountriesdata, addcurrentdisplay } from "../../actions/actions"
 function Searchbar(props){
     const countriesdata = useSelector(state => state.countriesdata);
     const currentdisplay = useSelector(state => state.currentdisplay)
+    const displaymode = useSelector(state => state.displaymode)
     const dispatch = useDispatch(); 
     
     const [input, setinput] = useState()
@@ -27,8 +28,9 @@ function Searchbar(props){
     }
 
     return(
-        <input type="search" className="h-[50px] w-[300px] md:w-[350px] lg:w-[400px] xl:w-[450px] rounded-sm pl-5 outline-0 bg-[#2B3945] 
-        text-white" placeholder="Search for a country..." onChange = {handleinput} />
+        <input type="search" className= {`h-[50px] w-[300px] md:w-[350px] lg:w-[400px] xl:w-[450px] shadow-lg rounded-sm pl-5 outline-0 
+         ${displaymode === "dark"? "bg-[#2B3945] text-white" : "bg-white text-[#858585]"}   `}
+         placeholder="Search for a country..." onChange = {handleinput} />
     )
 }
 
