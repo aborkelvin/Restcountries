@@ -7,7 +7,7 @@ function Backbtn(){
     return(
         
             <Link to = "/">
-                <button className = {`rounded-md shadow-sm my-10 h-[35px] w-[120px]
+                <button className = {`rounded-md shadow-sm mb-20 h-[35px] w-[120px]
                 ${displaymode === "dark"? "bg-[#2B3945] text-white shadow-[#0c1318]" : "bg-white text-[#111517] shadow-lg"}    `}>
                     Back
                 </button>

@@ -5,7 +5,7 @@ function Country(props){
     const displaymode = useSelector(state => state.displaymode)
 
     return(
-        <div className= {` w-[280px] shadow-2xl lg:mx-auto my-5 rounded-b-md 
+        <div className= {` w-[250px] sm:w-[280px] shadow-2xl lg:mx-auto my-5 rounded-b-md 
         ${displaymode === "dark"? "shadow-[rgb(12,19,24)]": '' } `}>
             <Link to = {`/country/${props.id}`} >
                 <img src = {props.flag} className="w-full h-[150px] rounded-t-md" />

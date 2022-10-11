@@ -28,7 +28,7 @@ function Searchbar(props){
     }
 
     return(
-        <input type="search" className= {`h-[50px] w-[300px] md:w-[350px] lg:w-[400px] xl:w-[450px] shadow-lg rounded-sm pl-5 outline-0 
+        <input type="search" className= {`h-[50px] w-full max-w-[450px] sm:w-[320px] md:w-[350px] lg:w-[400px] xl:max-w-[450px] shadow-lg rounded-sm pl-5 outline-0 
          ${displaymode === "dark"? "bg-[#2B3945] text-white" : "bg-white text-[#858585]"}   `}
          placeholder="Search for a country..." onChange = {handleinput} />
     )
